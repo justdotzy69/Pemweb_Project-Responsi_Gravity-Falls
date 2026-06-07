@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gravity Falls</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="external-title">SIGN IN</div>
+
+        <div class="left-side"></div>
+
+        <div class="right-side">
+            <img src="../assets/logogravity.png" alt="Gravity Falls Logo" class="logo">
+
+            <div class="form-content">
+                <h2 class="form-title">LOGIN</h2>
+                
+                <form action="proses_login.php" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="username" id="username" placeholder=" " required>
+                        <label for="username">USERNAME</label>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" placeholder=" " required>
+                        <label for="password">PASSWORD</label>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">SIGN IN</button>
+                </form>
+
+                <div class="switch-link">
+                    Belum punya akun? <a href="register.html">Daftar disini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
