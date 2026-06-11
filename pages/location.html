@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations - Gravity Falls</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/location.css"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="../assets/logogravity.png" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="character.html" class="nav-item"><i class="fa-solid fa-users"></i> Character</a>
+            <a href="journal.html" class="nav-item"><i class="fa-solid fa-book"></i> Journal</a>
+            <a href="location.html" class="nav-item active-nav"><i class="fa-solid fa-map-location-dot"></i> Location</a>
+        </div>
+      <div class="profile-dropdown">
+    <button class="nav-profile" onclick="toggleDropdown(event)">
+        <i class="fa-regular fa-circle-user"></i> Account <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="#" class="dropdown-item"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </div>
+</div>
+    </nav>
+
+    <main class="main-content">
+        
+        <div id="grid-view">
+            <div class="page-header">
+                <h1 class="brand-font">LOCATIONS</h1>
+            </div>
+
+            <div class="location-grid">
+                <div class="location-card" onclick="openLocation(0)">
+                    <div class="loc-img"><img src="../assets/mystery shack.jpg" alt="Mystery Shack"></div>
+                    <div class="loc-label brand-font">MYSTERY SHACK</div>
+                </div>
+                <div class="location-card" onclick="openLocation(1)">
+                    <div class="loc-img"><img src="../assets/gravity falls forest.jpg" alt="Forest"></div>
+                    <div class="loc-label brand-font">GRAVITY FALLS FOREST</div>
+                </div>
+                <div class="location-card" onclick="openLocation(2)">
+                    <div class="loc-img"><img src="../assets/gravity falls bunker.webp" alt="Bunker"></div>
+                    <div class="loc-label brand-font">GRAVITY FALLS BUNKER</div>
+                </div>
+                <div class="location-card" onclick="openLocation(3)">
+                    <div class="loc-img"><img src="../assets/nightmare realm.webp" alt="Nightmare Realm"></div>
+                    <div class="loc-label brand-font">NIGHTMARE REALM</div>
+                </div>
+                <div class="location-card" onclick="openLocation(4)">
+                    <div class="loc-img"><img src="../assets/Lake Gravity Falls.jpg" alt="Lake"></div>
+                    <div class="loc-label brand-font">GRAVITY FALLS LAKE</div>
+                </div>
+                <div class="location-card" onclick="openLocation(5)">
+                    <div class="loc-img"><img src="../assets/Gravity Falls town.jpg" alt="Town"></div>
+                    <div class="loc-label brand-font">TOWN OF GRAVITY FALLS</div>
+                </div>
+                <div class="location-card" onclick="openLocation(6)">
+                    <div class="loc-img"><img src="../assets/Northwest Mansion.jpg" alt="Mansion"></div>
+                    <div class="loc-label brand-font">NORTHWEST MANSION</div>
+                </div>
+                <div class="location-card" onclick="openLocation(7)">
+                    <div class="loc-img"><img src="../assets/underground jail.webp" alt="Jail"></div>
+                    <div class="loc-label brand-font">UNDERGROUND JAIL</div>
+                </div>
+                <div class="location-card" onclick="openLocation(8)">
+                    <div class="loc-img"><img src="../assets/mindscape.webp" alt="Mindscape"></div>
+                    <div class="loc-label brand-font">MINDSCAPE</div>
+                </div>
+                <div class="location-card" onclick="openLocation(9)">
+                    <div class="loc-img"><img src="../assets/Gravity Falls cemetery.jpg" alt="Cemetery"></div>
+                    <div class="loc-label brand-font">GRAVITY FALLS CEMENTARY</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="detail-view" style="display: none;">
+            
+            <div class="detail-top-bar">
+                <button class="back-btn brand-font" onclick="closeLocation()">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="page-header detail-header-box">
+                    <h1 class="brand-font" id="det-title">MYSTERY SHACK</h1>
+                </div>
+            </div>
+
+            <div class="detail-content-area">
+                <div class="detail-left parchment-desc">
+                    <p id="det-desc">Toko wisata milik Stanley Pines yang penuh dengan artefak palsu dan pameran tipuan. Menjadi markas utama keluarga Pines selama musim panas.</p>
+                </div>
+
+                <div class="detail-right">
+                    <img id="det-img" src="../assets/mystery shack.jpg" alt="Location Image">
+                    <div class="detail-info-box">
+                        <div class="info-line">
+                            <span class="info-lbl">Location type</span><span class="info-sep">:</span><span class="info-val" id="det-type">Building</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-lbl">dangerous</span><span class="info-sep">:</span><span class="info-val" id="det-danger">no</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-lbl">first appearance</span><span class="info-sep">:</span><span class="info-val" id="det-app">tourist trapped</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        const locationsData = [
+            {
+                title: "MYSTERY SHACK",
+                desc: "'Toko wisata milik Stanley Pines yang penuh dengan artefak palsu dan pameran tipuan. Menjadi markas utama keluarga Pines selama musim panas.'",
+                img: "../assets/mystery shack.jpg",
+                type: "Building",
+                danger: "no",
+                app: "tourist trapped"
+            },
+            {
+                title: "GRAVITY FALLS FOREST",
+                desc: "'Hutan pinus yang luas dan lebat mengelilingi kota. Tempat ini dipenuhi oleh berbagai makhluk anomali ajaib, monster, dan rahasia yang belum terpecahkan.'",
+                img: "../assets/gravity falls forest.jpg",
+                type: "Nature",
+                danger: "yes",
+                app: "tourist trapped"
+            },
+            {
+                title: "GRAVITY FALLS BUNKER",
+                desc: "'Fasilitas bawah tanah rahasia yang dibangun oleh Stanford Pines. Tempat ini dipenuhi jebakan mematikan dan sempat menjadi sarang dari makhluk Shape Shifter.'",
+                img: "../assets/gravity falls bunker.webp",
+                type: "Underground",
+                danger: "yes",
+                app: "into the bunker"
+            },
+            {
+                title: "NIGHTMARE REALM",
+                desc: "'Sebuah dimensi pembusukan antar semesta tempat Bill Cipher dan para iblis aneh lainnya berasal. Hukum fisika dan waktu tidak berlaku di tempat ini.'",
+                img: "../assets/nightmare realm.webp",
+                type: "Dimension",
+                danger: "extremely yes",
+                app: "weirdmageddon"
+            },
+            {
+                title: "GRAVITY FALLS LAKE",
+                desc: "'Danau utama di dekat kota yang sering digunakan penduduk untuk memancing dan liburan. Terdapat legenda monster bernama Gobblewonker di pulau Scuttlebutt.'",
+                img: "../assets/Lake Gravity Falls.jpg",
+                type: "Nature",
+                danger: "yes",
+                app: "the legend of the gobblewonker"
+            },
+            {
+                title: "TOWN OF GRAVITY FALLS",
+                desc: "'Kota kecil di Oregon yang didirikan oleh Quentin Trembley. Di sinilah para penduduk manusia normal mencoba menjalani hidup di tengah berbagai keanehan magis.'",
+                img: "../assets/Gravity Falls town.jpg",
+                type: "Settlement",
+                danger: "sometimes",
+                app: "tourist trapped"
+            },
+            {
+                title: "NORTHWEST MANSION",
+                desc: "'Rumah mewah milik keluarga paling kaya di kota, keluarga Northwest. Pernah dihantui oleh arwah penebang kayu pendendam sebelum akhirnya diselamatkan.'",
+                img: "../assets/Northwest Mansion.jpg",
+                type: "Building",
+                danger: "no",
+                app: "northwest mansion mystery"
+            },
+            {
+                title: "UNDERGROUND JAIL",
+                desc: "'Penjara berkeamanan tinggi tempat ditahannya para kriminal berbahaya di Gravity Falls, termasuk Gideon Gleeful sebelum ia berhasil melarikan diri.'",
+                img: "../assets/underground jail.webp",
+                type: "Structure",
+                danger: "yes",
+                app: "gideon rises"
+            },
+            {
+                title: "MINDSCAPE",
+                desc: "'Dimensi mental di dalam pikiran seseorang. Tempat ini hanya bisa diakses menggunakan sihir khusus atau oleh iblis mimpi seperti Bill Cipher.'",
+                img: "../assets/mindscape.webp",
+                type: "Dimension",
+                danger: "yes",
+                app: "dreamscaperers"
+            },
+            {
+                title: "GRAVITY FALLS CEMENTARY",
+                desc: "'Area pemakaman tua di pinggiran kota. Tempat ini merupakan lokasi di mana Dipper secara tidak sengaja membangkitkan pasukan zombie menggunakan mantra Jurnal 3.'",
+                img: "../assets/Gravity Falls cemetery.jpg",
+                type: "Location",
+                danger: "yes",
+                app: "scary-oke"
+            }
+        ];
+
+        const gridView = document.getElementById('grid-view');
+        const detailView = document.getElementById('detail-view');
+
+        function openLocation(index) {
+            const data = locationsData[index];
+            
+            document.getElementById('det-title').innerText = data.title;
+            document.getElementById('det-desc').innerText = data.desc;
+            document.getElementById('det-img').src = data.img;
+            document.getElementById('det-type').innerText = data.type;
+            document.getElementById('det-danger').innerText = data.danger;
+            document.getElementById('det-app').innerText = data.app;
+
+            gridView.style.display = 'none';
+            detailView.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function closeLocation() {
+            detailView.style.display = 'none';
+            gridView.style.display = 'block';
+        }
+         function toggleDropdown(event) {
+            event.stopPropagation(); 
+    
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show'); 
+        }
+
+        window.addEventListener('click', function() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal - Gravity Falls</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/journal.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="../assets/logogravity.png" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="character.html" class="nav-item"><i class="fa-solid fa-users"></i> Character</a>
+            <a href="journal.html" class="nav-item active-nav"><i class="fa-solid fa-book"></i> Journal</a>
+            <a href="location.html" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> Location</a>
+        </div>
+        <div class="profile-dropdown">
+    <button class="nav-profile" onclick="toggleDropdown(event)">
+        <i class="fa-regular fa-circle-user"></i> Account <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="#" class="dropdown-item"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </div>
+</div>
+    </nav>
+
+    <main class="main-content">
+        
+        <div class="sidebar">
+            <button class="arrow-btn" id="up-btn"><i class="fa-solid fa-caret-up"></i></button>
+
+            <div class="list-container" id="journal-scroll">
+                <div class="list-item active" onclick="changeJournal(0)">
+                    <div class="item-img-box"><img src="../assets/bill.png" alt="Bill Cipher"></div>
+                    <span class="brand-font">Bill Cipher</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(1)">
+                    <div class="item-img-box"><img src="../assets/dipper.png" alt="Dipper Pines"></div>
+                    <span class="brand-font">Dipper Pines</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(2)">
+                    <div class="item-img-box"><img src="../assets/gideon.png" alt="Gideon"></div>
+                    <span class="brand-font">Gideon</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(3)">
+                    <div class="item-img-box"><img src="../assets/gnome.png" alt="Gnomes"></div>
+                    <span class="brand-font">Gnomes</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(4)">
+                    <div class="item-img-box"><img src="../assets/gooblewonker.png" alt="Gobblewonker"></div>
+                    <span class="brand-font">Gobblewonker</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(5)">
+                    <div class="item-img-box"><img src="../assets/portal antar dimensi.jpg" alt="Portal"></div>
+                    <span class="brand-font">Portal</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(6)">
+                    <div class="item-img-box"><img src="../assets/shapeshifter.png" alt="Shapeshifter"></div>
+                    <span class="brand-font">Shapeshifter</span>
+                </div>
+                <div class="list-item" onclick="changeJournal(7)">
+                    <div class="item-img-box"><img src="../assets/time traveler.png" alt="Time Traveler"></div>
+                    <span class="brand-font">Time Traveler</span>
+                </div>
+            </div>
+
+            <button class="arrow-btn" id="down-btn"><i class="fa-solid fa-caret-down"></i></button>
+        </div>
+
+        <div class="display-container">
+            <div class="parchment-card">
+                <div class="card-left">
+                    <img src="../assets/bill.png" id="main-journal-img" alt="Journal Entry">
+                </div>
+                <div class="card-right">
+                    <div class="info-table">
+                        <div class="info-row">
+                            <span class="label">Title</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="journal-title">Bill Cipher - Entitas Berbahaya</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Journal</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="journal-number">2 & 3</span>
+                        </div>
+                    </div>
+                    <div class="description-section">
+                        <p class="desc-label">Description :</p>
+                        <p class="desc-text" id="journal-desc">PERINGATAN: Jangan pernah bernegosiasi dengan makhluk ini. Bill Cipher adalah iblis segitiga dari Nightmare Realm. Ia dapat memasuki mimpi, memanipulasi pikiran manusia, dan berniat memicu kiamat Weirdmageddon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const journals = [
+            { 
+                title: "Bill Cipher - Entitas Berbahaya", 
+                number: "2 & 3", 
+                image: "../assets/bill.png", 
+                desc: "PERINGATAN: Jangan pernah bernegosiasi dengan makhluk ini. Bill Cipher adalah iblis segitiga dari Nightmare Realm. Ia dapat memasuki mimpi, memanipulasi pikiran manusia, dan berniat memicu kiamat Weirdmageddon." 
+            },
+            { 
+                title: "Dipper Pines - Penemu Buku", 
+                number: "3", 
+                image: "../assets/dipper.png", 
+                desc: "Anak laki-laki cerdas yang menemukan Jurnal 3 tersembunyi di hutan. Dipper menggunakan buku ini sepanjang musim panas untuk memecahkan misteri, mengartikan kode rahasia, dan menambahkan catatan investigasinya sendiri." 
+            },
+            { 
+                title: "Gideon Charles Gleeful", 
+                number: "2", 
+                image: "../assets/gideon.png", 
+                desc: "Seorang musuh bebuyutan keluarga Pines yang memegang Jurnal 2. Dia menyalahgunakan kekuatan jurnal untuk mengendalikan jimat pelindung dan berusaha merebut kepemilikan Mystery Shack." 
+            },
+            { 
+                title: "Gnomes - Kurcaci Hutan", 
+                number: "3", 
+                image: "../assets/gnome.png", 
+                desc: "Makhluk-makhluk kecil bertopi runcing merah yang tinggal di hutan Gravity Falls. Mereka terlihat lucu tetapi bisa sangat agresif saat mencari ratu baru. Kelemahan utama mereka adalah mesin pengisap daun (Leaf Blower)." 
+            },
+            { 
+                title: "The Gobblewonker", 
+                number: "3", 
+                image: "../assets/gooblewonker.png", 
+                desc: "Monster laut legendaris yang dilaporkan mendiami Danau Gravity Falls. Investigasi lebih lanjut mengungkap bahwa makhluk ini sebenarnya adalah robot monster raksasa yang dikendalikan oleh Old Man McGucket." 
+            },
+            { 
+                title: "Portal Antar Dimensi", 
+                number: "1, 2, & 3", 
+                image: "../assets/portal antar dimensi.jpg", 
+                desc: "Mesin trans-dimensi raksasa yang dibangun secara rahasia di bawah laboratorium Mystery Shack. Cetak biru pembuatan mesin ini dibagi secara terpisah ke dalam ketiga jurnal agar tidak disalahgunakan." 
+            },
+            { 
+                title: "The Shape Shifter", 
+                number: "3", 
+                image: "../assets/shapeshifter.png", 
+                desc: "Eksperimen nomor 210 yang membeku di fasilitas bawah tanah. Makhluk purba yang sangat berbahaya karena mampu merubah bentuk fisiknya menjadi objek atau karakter apa pun secara instan untuk mengelabui mangsanya." 
+            },
+            { 
+                title: "Time Traveler - Blendin Blandin", 
+                number: "3 (Halaman Rahasia)", 
+                image: "../assets/time traveler.png", 
+                desc: "Petugas kebersihan waktu dari tahun 207012 yang melacak anomali waktu di Gravity Falls. Kehadirannya terdeteksi lewat pita pengukur waktu ajaib yang sempat tidak sengaja digunakan oleh Dipper dan Mabel." 
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function changeJournal(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = journals.length - 1;
+            if (currentIndex >= journals.length) currentIndex = 0;
+
+            const entry = journals[currentIndex];
+            document.getElementById('main-journal-img').src = entry.image;
+            document.getElementById('journal-title').innerText = entry.title;
+            document.getElementById('journal-number').innerText = entry.number;
+            document.getElementById('journal-desc').innerText = entry.desc;
+
+            const items = document.querySelectorAll('.list-item');
+            items.forEach((item, idx) => {
+                if (idx === currentIndex) item.classList.add('active');
+                else item.classList.remove('active');
+            });
+
+            items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        document.getElementById('up-btn').addEventListener('click', () => changeJournal(currentIndex - 1));
+        document.getElementById('down-btn').addEventListener('click', () => changeJournal(currentIndex + 1));
+        function toggleDropdown(event) {
+            event.stopPropagation(); 
+    
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show'); 
+        }
+
+        window.addEventListener('click', function() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
