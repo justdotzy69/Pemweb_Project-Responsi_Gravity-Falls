@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/dashboard.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        
+       <aside class="admin-sidebar" id="adminSidebar" onclick="toggleSidebar()">
+    <div class="sidebar-logo">
+        <img src="../assets/logogravity.png" alt="Logo">
+        <span class="brand-font logo-text">GRAVITY FALLS</span>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li class="menu-item"><a href="dashboard.html"><i class="fa-solid fa-house"></i> <span class="menu-text">Dashboard</span></a></li>
+        <li class="menu-item active"><a href="dashboard-users.html"><i class="fa-regular fa-user"></i> <span class="menu-text">Users</span></a></li>
+        <li class="menu-item"><a href="dashboard-character.html"><i class="fa-solid fa-face-smile"></i> <span class="menu-text">Character</span></a></li>
+        <li class="menu-item"><a href="dashboard-journal.html"><i class="fa-solid fa-book"></i> <span class="menu-text">Journal</span></a></li>
+        <li class="menu-item"><a href="dashboard-location.html"><i class="fa-solid fa-location-dot"></i> <span class="menu-text">Location</span></a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+    <div class="profile-dropdown">
+        <button type="button" class="account-btn" onclick="toggleAccountDropdown(event)">
+            <i class="fa-regular fa-circle-user"></i> 
+            <span class="account-text">Account</span> 
+            <i class="fa-solid fa-caret-up account-caret"></i>
+        </button>
+        
+        <div class="dropdown-menu" id="accountDropdown">
+            <a href="../pages/home.html" class="dropdown-item"><i class="fa-solid fa-house"></i> Home Page</a>
+            <a href="../pages/login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+</div>
+</aside>
+
+        <main class="admin-main">
+            <img src="../assets/logogravity.png" alt="Logo Besar" class="bg-logo-top">
+
+            <div class="title-pill brand-font">
+                <span class="screw left"></span>
+                USERS
+                <span class="screw right"></span>
+            </div>
+            <p style="margin-top: 30px; font-size: 18px;">Halaman manajemen data user akan diletakkan di sini.</p>
+        </main>
+    </div>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('adminSidebar');
+        sidebar.classList.toggle('expanded');
+    }
+    function toggleAccountDropdown(event) {
+    event.stopPropagation(); 
+    const accountMenu = document.getElementById('accountDropdown');
+    accountMenu.classList.toggle('show');
+}
+
+window.addEventListener('click', function() {
+    const accountMenu = document.getElementById('accountDropdown');
+    if (accountMenu && accountMenu.classList.contains('show')) {
+        accountMenu.classList.remove('show');
+    }
+});
+</script>
+</body>
+</html>

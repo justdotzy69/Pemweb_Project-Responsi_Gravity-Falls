@@ -24,7 +24,7 @@
         <i class="fa-regular fa-circle-user"></i> Account <i class="fa-solid fa-caret-down"></i>
     </button>
     <div class="dropdown-menu" id="dropdownMenu">
-        <a href="#" class="dropdown-item"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="../dashboard/dashboard.html" class="dropdown-item"><i class="fa-solid fa-house"></i> Dashboard</a>
         <a href="../pages/login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
 </div>
@@ -38,7 +38,7 @@
 
             <div class="parchment-card">
                 <div class="card-left">
-                    <img src="../assets/dipper.png" id="main-char-img" alt="Character">
+                    <img src="../assets/dipper1.png" id="main-char-img" alt="Character">
                 </div>
                 <div class="card-right">
                     <div class="info-table">
@@ -82,7 +82,7 @@
 
         <div class="selector-container" id="character-scroll">
             <div class="selector-item active" onclick="changeCharacter(0)">
-                <div class="circle-avatar"><img src="../assets/dipper.png" alt="Dipper"></div>
+                <div class="circle-avatar"><img src="../assets/dipper1.png" alt="Dipper"></div>
                 <span class="brand-font">DIPPER</span>
             </div>
             <div class="selector-item" onclick="changeCharacter(1)">
@@ -118,7 +118,7 @@
 
     <script>
         const characters = [
-            { name: "Dipper Pines", nickname: "Dipper", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/dipper.png", desc: "Seorang anak laki-laki berusia 12 tahun yang cerdas, penasaran, dan petualang yang bertekad untuk mengungkap rahasia kota Gravity Falls." },
+            { name: "Dipper Pines", nickname: "Dipper", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/dipper1.png", desc: "Seorang anak laki-laki berusia 12 tahun yang cerdas, penasaran, dan petualang yang bertekad untuk mengungkap rahasia kota Gravity Falls." },
             { name: "Stanley Pines", nickname: "Grunkle Stan", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/stan.png", desc: "Paman buyut Dipper dan Mabel yang mengelola Mystery Shack, sebuah tempat wisata penuh tipuan di Gravity Falls." },
             { name: "Mabel Pines", nickname: "Mabel", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/mabel.png", desc: "Saudara kembar Dipper yang optimis, energik, dan penuh warna, yang mengekspresikan dirinya melalui rajutan sweter buatan sendiri." },
             { name: "Stanford Pines", nickname: "Great Uncle Ford", category: "Human", appearance: "Not What He Seems", status: "Alive", image: "../assets/standford.png", desc: "Saudara kembar Stan yang hilang dan merupakan penulis asli dari ketiga jurnal misterius." },

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Character</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/dashboard.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        
+        <aside class="admin-sidebar" id="adminSidebar" onclick="toggleSidebar()">
+            <div class="sidebar-logo">
+                <img src="../assets/logogravity.png" alt="Logo">
+                <span class="brand-font logo-text">GRAVITY FALLS</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html"><i class="fa-solid fa-house"></i> <span class="menu-text">Dashboard</span></a></li>
+                <li class="menu-item"><a href="dashboard-users.html"><i class="fa-regular fa-user"></i> <span class="menu-text">Users</span></a></li>
+                <li class="menu-item active"><a href="dashboard-character.html"><i class="fa-solid fa-face-smile"></i> <span class="menu-text">Character</span></a></li>
+                <li class="menu-item"><a href="dashboard-journal.html"><i class="fa-solid fa-book"></i> <span class="menu-text">Journal</span></a></li>
+                <li class="menu-item"><a href="dashboard-location.html"><i class="fa-solid fa-location-dot"></i> <span class="menu-text">Location</span></a></li>
+            </ul>
+
+            <div class="sidebar-bottom">
+                <div class="profile-dropdown">
+                    <button type="button" class="account-btn" onclick="toggleAccountDropdown(event)">
+                        <i class="fa-regular fa-circle-user"></i> 
+                        <span class="account-text">Account</span> 
+                        <i class="fa-solid fa-caret-up account-caret"></i>
+                    </button>
+                    
+                    <div class="dropdown-menu" id="accountDropdown">
+                        <a href="../pages/home.html" class="dropdown-item"><i class="fa-solid fa-house"></i> Home Page</a>
+                        <a href="../pages/login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <img src="../assets/logogravity.png" alt="Logo Besar" class="bg-logo-top">
+
+            <div id="table-view">
+                <div class="title-pill brand-font">
+                    <span class="screw left"></span>
+                    CHARACTER
+                    <span class="screw right"></span>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>NAME</th>
+                            <th>EDIT / DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Dipper Pines</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Dipper Pines', 'Dipper', 'Human', 'Tourist Trapped', 'Alive', 'Anak laki-laki 12 tahun yang cerdas.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Stanley Pines</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Stanley Pines', 'Grunkle Stan', 'Human', 'Tourist Trapped', 'Alive', 'Paman buyut pengelola Mystery Shack.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Mabel Pines</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Mabel Pines', 'Mabel', 'Human', 'Tourist Trapped', 'Alive', 'Saudara kembar Dipper.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Standford Pines</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Standford Pines', 'The Author', 'Human', 'Not What He Seems', 'Alive', 'Penulis jurnal misterius.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td>Wendy Corduroy</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Wendy Corduroy', 'Wendy', 'Human', 'Tourist Trapped', 'Alive', 'Remaja keren pekerja Mystery Shack.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6.</td>
+                            <td>Bill Cipher</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Bill Cipher', 'Bill', 'Dream Demon', 'Dreamscaperers', 'Defeated', 'Iblis mimpi segitiga.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7.</td>
+                            <td>Soos</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Soos', 'Soos', 'Human', 'Tourist Trapped', 'Alive', 'Karyawan setia Mystery Shack.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8.</td>
+                            <td>Mcgucket</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm('edit', 'Mcgucket', 'Old Man Mcgucket', 'Human', 'Gobblewonker', 'Alive', 'Mantan asisten Ford.')"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn-add" onclick="showForm('add')">ADD NEW CHARACTER</button>
+            </div>
+
+            <div id="form-view" style="display: none;">
+                <div class="title-pill brand-font">
+                    <span class="screw left"></span>
+                    <span id="form-title-text">CHARACTER FORM</span>
+                    <span class="screw right"></span>
+                </div>
+
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label>NAME</label>
+                        <input type="text" id="input-name" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>NICKNAME</label>
+                        <input type="text" id="input-nickname" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>CATEGORY</label>
+                        <input type="text" id="input-category" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>FIRST APPEARANCE</label>
+                        <input type="text" id="input-appearance" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>STATUS</label>
+                        <input type="text" id="input-status" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>DESCRIPTION</label>
+                        <textarea id="input-desc" class="input-box"></textarea>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn-submit">SUBMIT</button>
+                        <button type="button" class="btn-cancel" onclick="hideForm()">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            sidebar.classList.toggle('expanded');
+        }
+        
+        function toggleAccountDropdown(event) {
+            event.stopPropagation(); 
+            const accountMenu = document.getElementById('accountDropdown');
+            accountMenu.classList.toggle('show');
+        }
+
+        window.addEventListener('click', function() {
+            const accountMenu = document.getElementById('accountDropdown');
+            if (accountMenu && accountMenu.classList.contains('show')) {
+                accountMenu.classList.remove('show');
+            }
+        });
+
+        function showForm(mode, name='', nickname='', category='', appearance='', status='', desc='') {
+            document.getElementById('table-view').style.display = 'none';
+            document.getElementById('form-view').style.display = 'block';
+
+            const titleText = document.getElementById('form-title-text');
+
+            if (mode === 'add') {
+                titleText.innerText = "ADD NEW CHARACTER";
+                document.getElementById('input-name').value = '';
+                document.getElementById('input-nickname').value = '';
+                document.getElementById('input-category').value = '';
+                document.getElementById('input-appearance').value = '';
+                document.getElementById('input-status').value = '';
+                document.getElementById('input-desc').value = '';
+            } else if (mode === 'edit') {
+                titleText.innerText = "EDIT CHARACTER";
+                document.getElementById('input-name').value = name;
+                document.getElementById('input-nickname').value = nickname;
+                document.getElementById('input-category').value = category;
+                document.getElementById('input-appearance').value = appearance;
+                document.getElementById('input-status').value = status;
+                document.getElementById('input-desc').value = desc;
+            }
+        }
+
+        function hideForm() {
+            document.getElementById('form-view').style.display = 'none';
+            document.getElementById('table-view').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

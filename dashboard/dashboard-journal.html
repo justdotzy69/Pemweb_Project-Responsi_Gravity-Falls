@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Journal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/dashboard.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        
+        <aside class="admin-sidebar" id="adminSidebar" onclick="toggleSidebar()">
+            <div class="sidebar-logo">
+                <img src="../assets/logogravity.png" alt="Logo">
+                <span class="brand-font logo-text">GRAVITY FALLS</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="dashboard.html"><i class="fa-solid fa-house"></i> <span class="menu-text">Dashboard</span></a></li>
+                <li class="menu-item"><a href="dashboard-users.html"><i class="fa-regular fa-user"></i> <span class="menu-text">Users</span></a></li>
+                <li class="menu-item"><a href="dashboard-character.html"><i class="fa-solid fa-face-smile"></i> <span class="menu-text">Character</span></a></li>
+                <li class="menu-item active"><a href="dashboard-journal.html"><i class="fa-solid fa-book"></i> <span class="menu-text">Journal</span></a></li>
+                <li class="menu-item"><a href="dashboard-location.html"><i class="fa-solid fa-location-dot"></i> <span class="menu-text">Location</span></a></li>
+            </ul>
+
+           <div class="sidebar-bottom">
+    <div class="profile-dropdown">
+        <button type="button" class="account-btn" onclick="toggleAccountDropdown(event)">
+            <i class="fa-regular fa-circle-user"></i> 
+            <span class="account-text">Account</span> 
+            <i class="fa-solid fa-caret-up account-caret"></i>
+        </button>
+        
+        <div class="dropdown-menu" id="accountDropdown">
+            <a href="../pages/home.html" class="dropdown-item"><i class="fa-solid fa-house"></i> Home Page</a>
+            <a href="../pages/login.html" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+</div>
+        </aside>
+
+        <main class="admin-main">
+            <img src="../assets/logogravity.png" alt="Logo Besar" class="bg-logo-top">
+
+            <div id="table-view">
+                <div class="title-pill brand-font">
+                    <span class="screw left"></span>
+                    JOURNAL LIST
+                    <span class="screw right"></span>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>TITLE</th>
+                            <th>JOURNAL NUMBER</th>
+                            <th>EDIT / DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>Time Traveler</td>
+                            <td>3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Gnomes</td>
+                            <td>3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>3.</td>
+                            <td>Bill Cipher</td>
+                            <td>2 & 3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>4.</td>
+                            <td>Dipper Pines</td>
+                            <td>3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>5.</td>
+                            <td>ShapeShifter</td>
+                            <td>3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>6.</td>
+                            <td>Portal</td>
+                            <td>1, 2, & 3</td>
+                            <td>
+                                <button class="btn-edit" onclick="showForm()"><i class="fa-solid fa-pen-to-square"></i> EDIT</button>
+                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i> DELETE</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn-add" onclick="showForm()">ADD NEW JOURNAL</button>
+            </div>
+
+            <div id="form-view" style="display: none;">
+                <div class="title-pill brand-font">
+                    <span class="screw left"></span>
+                    JOURNAL FORM
+                    <span class="screw right"></span>
+                </div>
+
+                <form class="admin-form">
+                    <div class="form-group">
+                        <label>TITLE</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>JOURNAL NUMBER</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="form-group">
+                        <label>DESCRIPTION</label>
+                        <textarea class="input-box"></textarea>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn-submit">SUBMIT</button>
+                        <button type="button" class="btn-cancel" onclick="hideForm()">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            sidebar.classList.toggle('expanded');
+        }
+
+        function showForm() {
+            document.getElementById('table-view').style.display = 'none';
+            document.getElementById('form-view').style.display = 'block';
+        }
+
+        function hideForm() {
+            document.getElementById('form-view').style.display = 'none';
+            document.getElementById('table-view').style.display = 'block';
+        }
+        function toggleAccountDropdown(event) {
+        event.stopPropagation(); 
+        const accountMenu = document.getElementById('accountDropdown');
+        accountMenu.classList.toggle('show');
+        }
+
+        window.addEventListener('click', function() {
+            const accountMenu = document.getElementById('accountDropdown');
+            if (accountMenu && accountMenu.classList.contains('show')) {
+                accountMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
