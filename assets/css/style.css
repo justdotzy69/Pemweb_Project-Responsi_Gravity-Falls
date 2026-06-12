@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background-color: #5d2537;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.external-title {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* ==========================
+   LEFT SIDE
+========================== */
+
+.left-side {
+    flex: 5.5;
+    background-image: url("../bukujurnal.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================
+   RIGHT SIDE
+========================== */
+
+.right-side {
+    flex: 4.5;
+    background-color: #5d2537;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: -15px 0 30px rgba(0,0,0,0.6);
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #c1a87e;
+    letter-spacing: 1px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================
+   INPUT
+========================== */
+
+.input-group {
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 10px 40px 10px 0;
+    color: #c1a87e;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: transparent;
+}
+
+.input-group i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c1a87e;
+    font-size: 16px;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #999;
+    font-size: 14px;
+    letter-spacing: 1px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -15px;
+    font-size: 11px;
+    color: #c1a87e;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.submit-btn {
+    background-color: #c1a87e;
+    color: #5d2537;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #d1b88e;
+}
+
+/* ==========================
+   REGISTER / LOGIN LINK
+========================== */
+
+.switch-link {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.switch-link a {
+    color: #c1a87e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   FLASH MESSAGE
+========================== */
+
+.error-msg {
+    background: rgba(200,50,50,0.3);
+    border: 1px solid #c83232;
+    color: #ffaaaa;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.success-msg {
+    background: rgba(40,160,80,0.3);
+    border: 1px solid #28a050;
+    color: #a8e6b8;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .left-side {
+        display: none;
+    }
+
+    .right-side {
+        flex: 1;
+        width: 100%;
+    }
+
+    .external-title {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,210 @@
+<?php
+session_start();
+require_once "../config/db.php";
+require_once "../functions/helpers.php";
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakter - Gravity Falls</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/character.css">
+</head>
+<body>
+
+    <nav class="navbar">
+
+    <a href="../index.php" class="nav-logo">
+        <img src="../assets/logogravity.png" alt="Logo">
+    </a>
+
+    <div class="nav-links">
+
+        <a href="../index.php" class="nav-item">
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a href="../characters/index.php" class="nav-item active-nav">
+            <i class="fa-solid fa-users"></i> Character
+        </a>
+
+        <a href="../journal/index.php" class="nav-item">
+            <i class="fa-solid fa-book"></i> Journal
+        </a>
+
+        <a href="../locations/index.php" class="nav-item">
+            <i class="fa-solid fa-map-location-dot"></i> Location
+        </a>
+
+    </div>
+
+    <div class="profile-dropdown">
+
+        <button class="nav-profile" onclick="toggleDropdown(event)">
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Account</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </button>
+
+        <div class="dropdown-menu" id="dropdownMenu">
+
+            <a href="../index.php" class="dropdown-item">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="../auth/logout.php" class="dropdown-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+    <main class="main-content">
+        <div class="display-container">
+            <button class="arrow-btn" id="prev-btn">
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+
+            <div class="parchment-card">
+                <div class="card-left">
+                    <img src="../assets/dipper1.png" id="main-char-img" alt="Character">
+                </div>
+                <div class="card-right">
+                    <div class="info-table">
+                        <div class="info-row">
+                            <span class="label">Name</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="char-name">Dipper Pines</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Nickname</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="char-nickname">Dipper</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Category</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="char-category">Human</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Appearance</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="char-appearance">Tourist Trapped</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Status</span>
+                            <span class="separator">:</span>
+                            <span class="value" id="char-status">Alive</span>
+                        </div>
+                    </div>
+                    <div class="description-section">
+                        <p class="desc-label">Description :</p>
+                        <p class="desc-text" id="char-desc">Seorang anak laki-laki berusia 12 tahun yang cerdas, penasaran, dan petualang yang bertekad untuk mengungkap rahasia kota Gravity Falls.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="arrow-btn" id="next-btn">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
+        </div>
+
+        <div class="selector-container" id="character-scroll">
+            <div class="selector-item active" onclick="changeCharacter(0)">
+                <div class="circle-avatar"><img src="../assets/dipper1.png" alt="Dipper"></div>
+                <span class="brand-font">DIPPER</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(1)">
+                <div class="circle-avatar"><img src="../assets/stan.png" alt="Stanley"></div>
+                <span class="brand-font">STANLEY</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(2)">
+                <div class="circle-avatar"><img src="../assets/mabel.png" alt="Mabel"></div>
+                <span class="brand-font">MABEL</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(3)">
+                <div class="circle-avatar"><img src="../assets/standford.png" alt="Stanford"></div>
+                <span class="brand-font">STANFORD</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(4)">
+                <div class="circle-avatar"><img src="../assets/soos.png" alt="Soos"></div>
+                <span class="brand-font">SOOS</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(5)">
+                <div class="circle-avatar"><img src="../assets/wendy.png" alt="Wendy"></div>
+                <span class="brand-font">WENDY</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(6)">
+                <div class="circle-avatar"><img src="../assets/bill.png" alt="Bill"></div>
+                <span class="brand-font">BILL CIPHER</span>
+            </div>
+            <div class="selector-item" onclick="changeCharacter(7)">
+                <div class="circle-avatar"><img src="../assets/mcgucket.png" alt="McGucket"></div>
+                <span class="brand-font">MCGUCKET</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const characters = [
+            { name: "Dipper Pines", nickname: "Dipper", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/dipper1.png", desc: "Seorang anak laki-laki berusia 12 tahun yang cerdas, penasaran, dan petualang yang bertekad untuk mengungkap rahasia kota Gravity Falls." },
+            { name: "Stanley Pines", nickname: "Grunkle Stan", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/stan.png", desc: "Paman buyut Dipper dan Mabel yang mengelola Mystery Shack, sebuah tempat wisata penuh tipuan di Gravity Falls." },
+            { name: "Mabel Pines", nickname: "Mabel", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/mabel.png", desc: "Saudara kembar Dipper yang optimis, energik, dan penuh warna, yang mengekspresikan dirinya melalui rajutan sweter buatan sendiri." },
+            { name: "Stanford Pines", nickname: "Great Uncle Ford", category: "Human", appearance: "Not What He Seems", status: "Alive", image: "../assets/standford.png", desc: "Saudara kembar Stan yang hilang dan merupakan penulis asli dari ketiga jurnal misterius." },
+            { name: "Jesus Alzamirano Ramirez", nickname: "Soos", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/soos.png", desc: "Karyawan setia di Mystery Shack yang menggemari gim video dan selalu siap membantu Dipper dan Mabel." },
+            { name: "Wendy Corduroy", nickname: "Wendy", category: "Human", appearance: "Tourist Trapped", status: "Alive", image: "../assets/wendy.png", desc: "Remaja perempuan santai dan keren yang bekerja paruh waktu di Mystery Shack. Dipper diam-diam menyukainya." },
+            { name: "Bill Cipher", nickname: "Bill", category: "Dream Demon", appearance: "Dreamscaperers", status: "Deceased / Erased", image: "../assets/bill.png", desc: "Iblis mimpi berbentuk segitiga bermata satu yang gila, sadis, dan sangat kuat dari Nightmare Realm." },
+            { name: "Fiddleford Hadron McGucket", nickname: "Old Man McGucket", category: "Human", appearance: "The Legend of the Gobblewonker", status: "Alive", image: "../assets/mcgucket.png", desc: "Mantan penemu jenius yang kehilangan ingatannya dan menjadi orang tua aneh di tempat pembuangan akhir Gravity Falls." }
+        ];
+
+        let currentIndex = 0;
+
+        function changeCharacter(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = characters.length - 1;
+            if (currentIndex >= characters.length) currentIndex = 0;
+
+            const char = characters[currentIndex];
+            document.getElementById('main-char-img').src = char.image;
+            document.getElementById('char-name').innerText = char.name;
+            document.getElementById('char-nickname').innerText = char.nickname;
+            document.getElementById('char-category').innerText = char.category;
+            document.getElementById('char-appearance').innerText = char.appearance;
+            document.getElementById('char-status').innerText = char.status;
+            document.getElementById('char-desc').innerText = char.desc;
+
+            const items = document.querySelectorAll('.selector-item');
+            items.forEach((item, idx) => {
+                if (idx === currentIndex) item.classList.add('active');
+                else item.classList.remove('active');
+            });
+            
+            items[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        document.getElementById('prev-btn').addEventListener('click', () => changeCharacter(currentIndex - 1));
+        document.getElementById('next-btn').addEventListener('click', () => changeCharacter(currentIndex + 1));
+        function toggleDropdown(event) {
+            event.stopPropagation(); 
+    
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show'); 
+        }
+
+        window.addEventListener('click', function() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
